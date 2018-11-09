@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'>
+      <my-component></my-component>
+  </div>
+  <script>
+    /* props例子
+      1. 全局注册一个组件 myComponent
+          data:['xiaoming','xiaohong','xiaowang']
+          template:`<div>子组件</div>`
+      2. 在myComponent中注册一个子组件 liList
+          template:`<ul><li>渲染data数据</li></ul>`
+     */
+    Vue.component('my-component', {
+      data() {
+        return {
+          msg: ['xiaoming', 'xiaohong', 'xiaowang']
+        }
+      },
+      template: `
+        <div>
+          <liList :show-msg='msg'></liList>
+        </div>
+      `,
+      components: {
+        'liList': {
+          template: `
+            <ul>
+              <li v-for='item in showMsg'>{{item}}</li>
+            </ul>
+          `,
+          props: {
+            'showMsg': {
+              default: [],
+              type: Array
+            }
+          }
+        }
+      }
+
+    })
+
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

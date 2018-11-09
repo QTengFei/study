@@ -1,0 +1,49 @@
+- 全局 API
+  1. Vue.extend 扩展实例构造器方法
+     Vue.extend({
+       options
+     })
+     参数是一个对象,选项和组件中的是同样的,data必须是函数形式
+
+  2. Vue.set()
+     作用: 就是在构造器外部操作内部的数据,属性和方法  
+     问题: 由于JS的限制,当你改变的数据类型是数组时,vue不会帮我们自动更新视图,当你修改数据的length时,vue也不会触发响应式
+
+     - Vue-cli
+       Vue-cli是官方提供的用于快速构建项目结构的脚手架工具
+       它会自动生成Vue项目的目录以及文件
+       1. 安装:
+            cnpm install vue-cli -g
+       2. 初始化项目
+         (1)vue init <template-name> <project-name>
+                       wabpack         项目名称
+         (2)设置选项
+              1. project name:项目名称 小写
+              2. project description:项目描述
+              3. Auther:作者
+              4. install vue-router:是否安装
+              5. Use ESLint to lint youer code:Y/N
+              6. setup unit tests width Karma + Mocha:是否安装单元测试工具
+         (3)Get Start 启动项目
+
+  3. src 源码目录文件
+          assets: 静态资源
+                  包含图片,web字体,json数据...
+          components: 公共组件
+          router: 路由配置文件
+          App.vue: 根组件
+                   在项目中我们都是用.vue文件来表示一个组件(vue实例)
+                   一个vue文件包含三个部分:template,script,style
+                   template:  在模板中必须要设置一个父元素
+                   script  :  这里面可以有vue的逻辑,我们使用ES6的语法来写的,使用exports default来导出一个模块
+                   style   :  默认是全局下的,如果只需要作用于当前组件,<style scoped>
+          man.js: 入口JS文件,主文件
+
+
+  - Vue-cli 3 版本的安装
+          1. cnpm i @vue/cli -g
+          2. 初始化项目
+                (1) vue create project-name
+                (2) vue ui
+                      (报错的话)npm cache clean --force
+                                npm install --registry=https://registry.npm.taobao.org

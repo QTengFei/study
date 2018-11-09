@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+  <style>
+  .header{
+    color:brown;
+    border: 1px solid #666;
+    padding: 10px;
+  }
+  .style_A{
+    background-color: #33a;
+    color: #fff;
+  }
+  .style_B{
+    background-color: #88a;
+    color: #ddd;
+  }
+  </style>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- v-bind 来绑定属性 -->
+    <h2>绑定img的src</h2>
+    <img :src="imgSrc" alt="">
+
+    <h2>绑定a标签的href</h2>
+    <a :href="baidu">百度一下,你就知道</a>
+
+    <h3>样式的绑定</h3>
+    <div v-bind:style='styleObj'>This is a v-bind directive</div>
+
+    <h3>class的绑定</h3>
+    <div :class='className'>
+      This is className 的绑定
+    </div>
+
+    <h3>绑定样式并判断</h3>
+    <div :class='{style_A:isok}'>
+        绑定样式并判断
+    </div>
+    <div :class='isok?classA:classB'>
+        绑定样式并判断 三元运算
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        imgSrc: './img/1.png',
+        baidu: 'https://www.baidu.com',
+        className: 'header',
+        isok: true,
+        classA: 'style_A',
+        classB: 'style_B',
+        styleObj: {
+          fontSize: '28px',
+          color: 'red',
+          background: '#228'
+        }
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='../libs/angular.min.js'></script>
+  <style>
+  button{
+    width: 200px;
+    height: 50px;
+    font-size: 35px;
+  }
+  .nav{
+    color: red;
+    font-size: 40px;
+  }
+  </style>
+</head>
+<body ng-app='app'>
+  <div ng-controller="ctrl">
+    <button ng-click='auto()'>彩票开奖</button>
+    <div class="nav">
+      {{sub}}{{msg}}
+    </div>
+  </div>
+</body>
+<script>
+  var app = angular.module('app', []);
+  app.controller("ctrl",["$scope","$interval",function($scope,$interval){
+    var id = 0;
+    var Ran = [];
+    $scope.auto = function (){
+     id = $interval(function(){
+          $scope.dn = parseInt((Math.random()*100))+1;
+          Ran.push($scope.dn);
+          $scope.sub = Ran;
+          if($scope.sub.length == 5){
+              $interval.cancel(id);
+             $scope.msg="抽奖完成";
+          }
+
+      },1000)
+      
+
+    }
+  }]);
+</script>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "03_course",
+  "version": "1.0.0",
+  "description": "preject message",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "formidable": "^1.2.1",
+    "mongodb": "^3.1.8",
+    "querystring": "^0.2.0",
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "mongodb": "^3.1.8",
+    "querystring": "^0.2.0",
+    "silly-datetime": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QTengFei/03_course.git"
+  },
+  "author": "Fei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QTengFei/03_course/issues"
+  },
+  "homepage": "https://github.com/QTengFei/03_course#readme"
+}

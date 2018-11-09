@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- 组件的引用ID -->
+    <my-comp ref="myC"></my-comp>
+  </div>
+  <script>
+    /* 组件的引用 ref */
+    Vue.component('my-comp',{
+      data(){
+        return {
+          msg:'myComp'
+        }
+      },
+      template:`<div style='color:red'>This is a component Template</div>`,
+      methods:{
+        add(){
+          console.log('This is add');
+        }
+      }
+    })
+
+
+    new Vue({
+      el: '#app',
+      // 实例已挂载
+      mounted() {
+        // 使用引用id $refs.ID
+        // 得到组件实例
+        console.log(this.$refs.myC);
+        console.log(this.$refs.myC.msg);
+        console.log(this.$refs.myC.add());
+        // 还可以获取组件的DOM元素
+        console.log(this.$refs.myC.$el);
+      },
+    });
+  </script>
+</body>
+</html>

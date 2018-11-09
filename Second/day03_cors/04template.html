@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="./temp/template-native.js"></script>
+</head>
+
+<body>
+  <!-- 在script中定义模板 -->
+  <script id="temp01" type="text/html">
+    <ul>
+        <li><%= name %></li>
+        <li><%= skill %></li>
+        <li>
+            friend
+            <ul>
+             <% for(var i=0;i<friend.length;i++){ %>
+               <li><%= friend[i] %></li>
+             <% } %>
+             </ul>
+           </li>
+           <li>
+             son
+             <ul>
+             <% for(var a=0;a<son.length;a++){ %>
+                 <li>名字:<%= son[a].name %></li>
+                 <li>老婆:<%= son[a].wife %></li>
+                 <li>年龄:<%= son[a].age %></li>
+             <% } %>
+             </ul>
+           </li>
+      </ul>
+  </script>
+
+  <script>
+    //定义数据 obj
+    var obj = {
+      name: '孙悟空',
+      skill: '龟派气功',
+      friend: ['小林', '龟仙人', '天津饭', '布尔玛'],
+      son: [{
+        name: '孙悟饭',
+        wife: '比里迪',
+        age: 20
+      }, {
+        name: '孙悟天',
+        wife: '无',
+        age: 12
+      }]
+    };
+    
+    // 调用模板引擎方法
+    var data = template('temp01',obj);
+    // 添加数据到页面上
+    document.body.innerHTML = data;
+  
+  </script>
+</body>
+
+</html>

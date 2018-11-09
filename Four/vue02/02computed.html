@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'>
+    <p>{{msg.split('').reverse().join('')}}</p>
+    <p>{{setReverse()}}</p>
+    <!-- 直接把计算方法名当成变量来使用 -->
+    <p>{{newMsg}}</p>
+  </div>
+  <script>
+    /* 把msg值颠倒过来 */
+    new Vue({
+      el: '#app',
+      data: {
+        msg:'Hello Vue!'
+      },
+      methods:{
+        setReverse(){
+          return this.msg.split('').reverse().join('');
+        }
+      },
+      computed:{  // 对象
+        newMsg(){ // 定义一个计算方法
+          return this.msg.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

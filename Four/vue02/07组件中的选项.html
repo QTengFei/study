@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script>
+    /* 全局注册一个组件 my-component */
+    /* 组件中的选项 data
+       1. data必须以函数的形式出现
+       2. 必须的有return,返回一个对象,在对象中声明变量
+       3. 因为组件会被复用,data是对象的话,一旦修改data中的值,就会影响组件之间的复用
+    */
+    Vue.component('MyComponent', {
+      data() {
+        return {
+          msg: 'Hello My Baby'
+        }
+      },
+      template:`<p style='color:green;'>{{msg}}</p>`
+    })
+    // 实例
+    new Vue({
+      el: '#app',
+      data:{},
+      template:`
+        <div>
+          <MyComponent></MyComponent>
+          <MyComponent></MyComponent>
+          <MyComponent></MyComponent>
+        </div>
+      `
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script>
+    /* 局部注册组件 */
+    new Vue({
+      el: '#app',
+      data: {},
+      template: `
+        <div>
+          <my-component></my-component>
+        </div>`,
+      components: {
+        'MyComponent': {
+          data() {
+            return {
+              msg:'I am my-component组件',
+              bgColor:{
+                background:'#ddd',
+                color:'#333'
+              }
+            }
+          },
+          template: `
+              <div>
+                <p :style='bgColor'>账户组件内容</p>
+                <a href="#" @click='login'>登录</a>
+                <a href="#">注册</a>
+              </div> 
+           `,
+          methods:{
+            login(){
+              alert(this.msg);
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

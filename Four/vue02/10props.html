@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'>
+    <my-comp></my-comp>
+  </div>
+  <script>
+    /* 全局组件 */
+    /* 
+      1. 在父组件中绑定自定义属性:
+          如果传值是变量,就需要 v-bind 去绑定
+          如果不是变量,就不需要绑定,直接赋值
+      2. 在子组件中通过自定义属性接受到数据,可以当变量来用
+     */
+    Vue.component('my-comp', {
+      /* props属性绑定时用横线连接 */
+      template: `
+        <div style='padding:20px;border:1px solid red;'>
+          <child-comp v-bind:show-msg='msg'></child-comp>
+          <child-comp show-msg='hello world'></child-comp>
+          <child-comp></child-comp>
+        </div>
+      `,
+      data() {
+        return {
+          msg: '我是父组件data'
+        }
+      },
+      components: {
+        'child-comp': {
+          template: `<p style='color:blue'>{{showMsg}}</p>`,
+          /* 定义props属性时可以驼峰命名 */
+          // props: ['showMsg']
+          /* 第二种定义方式 */
+          props:{
+            'showMsg':{
+              default:'HHH',
+              type:String
+            }
+          },
+          created() {
+            console.log(this.showMsg);
+            // 不能在子组件中直接修改props属性值
+            // this.showMsg = '喝酒啊~'
+          },
+        }
+      }
+    })
+
+
+    /* 创建一个实例 */
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

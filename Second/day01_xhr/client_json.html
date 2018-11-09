@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+    <h3>构建客户端json格式字符串</h3>
+    <input type="text" placeholder="请输入内容" id="txt">
+    <input type="button" id="btn" value="点击">
+</body>
+
+  <script>
+
+    /* 点击按钮把输入在文本框的内容以json的格式传给服务器端 */
+    btn.onclick = function(){
+      var jsonData = '{"user":"'+txt.value+'"}';
+      console.log(JSON.parse(jsonData));
+      var xhr = new XMLHttpRequest();
+      xhr.open('get','03.php?user='+jsonData);
+      xhr.send(null);
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState===4 && xhr.status){
+            console.log(xhr.responseText);
+        }
+      }
+    }
+
+  
+
+  </script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../libs/angular.min.js"></script>
+  <style>
+  .bgc{
+    background: #aaa;
+  }
+  </style>
+</head>
+<body ng-app="app">
+  <div ng-controller="ctrl">
+      <input type="checkBox" value="sing"  ng-checked="hobby=='sing'">唱歌
+      <input type="checkBox" value="dance" ng-checked="hobby=='dance'">跳舞
+      <input type="checkBox" value="write" ng-checked="hobby=='write'">写字
+      <div>
+        <img ng-src="{{path}}">
+      </div>
+      <ul>
+        <li>
+          <select ng-model="val">
+            <option value="1">html</option>
+            <option value="2">js</option>
+          </select>
+      </li>
+       <li>
+          <select ng-switch="val">
+            <option ng-switch-when="1">html初级</option>
+            <option ng-switch-when="1">html中级</option>
+            <option ng-switch-when="1">html高级</option>
+            <option ng-switch-when="2">js初级</option>
+            <option ng-switch-when="2">js中级</option>
+            <option ng-switch-when="2">js高级</option>
+          </select>
+        </li>
+        <div>
+            {{num}},{{str}},{{obj}},{{arr}}
+        </div>
+      </ul>
+      <div ng-repeat="key in arr track by $index">
+          <div ng-class="{bgc:$index==1}" ng-hide="$index==2">{{key}}</div> 
+      </div>
+  </div>
+</body>
+<script>
+var app = angular.module("app",[]);
+app.controller("ctrl",["$scope",function($scope){
+    $scope.hobby='dance';
+    $scope.path='../day03/1.jpg';
+    $scope.num = 50;
+    $scope.str = "apple";
+    $scope.obj = {name:'QTengFei',sex:40};
+    $scope.arr = ['QTengFei','kebi','Kill','cool'];
+    $scope.color = 1;
+    $scope.bgc = true;
+}])
+</script>
+</html>

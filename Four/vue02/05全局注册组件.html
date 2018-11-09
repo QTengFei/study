@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+  <hr>
+  <div id='app1'></div>
+  <script>
+    /* 全局注册component
+       1. 组件注册要写在实例创建之前
+       2. 组件的命名(两种): 驼峰命名,短横线连接
+                        MyComponent my-component 推荐使用短横线连接
+       3. 全局注册的组件全局可用
+    */
+    Vue.component('my-component', {
+      template:`<div style='background:#822;margin:20px;'>这是一个全局注册的组件 {{msg}}</div>`,
+      data(){
+        return {
+          msg:'my-component'
+        }
+      }
+    })
+    /* 创建一个vue实例 */
+    /* 以标签的形式写入 实例中 */
+    /* 组件可以被引用,可复用 */
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      template:`
+        <div style='color:blue;'>
+          <my-component></my-component>  
+          <my-component></my-component>  
+          <my-component></my-component>  
+        </div>
+      `
+    });
+
+    new Vue({
+      el: '#app1',
+      template:`
+        <div style='color:red;'>
+          <my-component></my-component>  
+          <my-component></my-component>  
+          <my-component></my-component>  
+        </div>
+      `
+    })
+  </script>
+</body>
+
+</html>

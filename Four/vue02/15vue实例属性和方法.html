@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <script src='./vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script>
+    /* Vue 实例 */
+    const App = new Vue({
+      el: '#app',
+      data: {
+        msg: '123'
+      },
+      props: {
+        'state': {
+          type: '',
+          default:'count'
+        }
+      },
+      methods: {}
+    });
+    console.log(App.$data)
+    console.log(App.$props);
+    console.log(App.$options);
+    console.log(App.$root);
+    console.log(App.$children);
+    console.log(App.$slots);
+    console.log(App.$attrs);
+  </script>
+</body>
+
+</html>

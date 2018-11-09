@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='../libs/angular.min.js'></script>
+</head>
+<body ng-app="app">
+  <div ng-controller="stop">
+    名字是:{{name}}<br>
+    年龄是:{{age}}<br>
+    水果是:{{num}}<br>
+    对象是:{{obj}}<br>
+    水果是:{{num[0]}}<br>
+    对象是:{{obj.a}}
+  </div>
+</body>
+<script>
+var app = angular.module("app",[]);
+app.controller("stop",["$scope",function($scope){
+  $scope.name= "李四";
+  $scope.age = 60;
+  $scope.num = [1,2,3];
+  $scope.obj = {a:30,b:50};
+}])
+</script>
+</html>

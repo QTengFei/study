@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    select,
+    ul {
+      float: left;
+    }
+  </style>
+  <script src="./xhr_tools.js"></script>
+</head>
+
+<body>
+  <select id="pro">
+    <option>-请选择-</option>
+    <option>江苏省</option>
+    <option>四川省</option>
+    <option>安徽省</option>
+  </select>
+  <ul id='city'>
+
+  </ul>
+</body>
+<script>
+  // Ajax请求cities.json数据,取到数据,通过前台菜单的省份的选择显示对应的城市
+  pro.onchange = function () {
+    // 清空之前的li内容
+    city.innerHTML = '';
+    // 当点击请选择时,不作任何处理
+    // console.log(this.value);
+    if (this.value.slice(1, -1) === '请选择') {
+      return;
+    }
+    xhr({
+      url:'01.php',
+      methods:'get',
+      success:function (data) {
+      var Big = JSON.parse(data);
+      // console.log(Big);
+      for (key in Big) {
+        if (pro.value == key) {
+          // console.log(Big[key]);
+          for (var i = 0; i < Big[key].length; i++) {
+            // console.log(Big[key][i]);
+            var li = document.createElement('li');
+            li.innerHTML = Big[key][i];
+            //追加到ul下
+            city.appendChild(li);
+          }
+        }
+      }
+    }
+      
+    })
+  }
+</script>
+
+</html>

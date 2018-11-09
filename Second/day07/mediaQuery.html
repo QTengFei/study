@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      /* css rest */
+      font-family: 'Microsoft yahei';
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 屏幕分辨率 大于901px */
+    @media screen and (min-width:901px) {
+      .d1 {
+        border: 1px solid #ddd;
+        background: #ddd;
+        color: #28a;
+      }
+    }
+
+    /* 屏幕分辨率 在900px ~ 600px 之间 */
+    @media screen and (max-width:900px) and (min-width:600px) {
+      .d1 {
+        border: 2px solid #a33;
+        background: #fdd;
+        color: #822;
+        padding: 4px;
+      }
+    }
+
+    /* 屏幕分辨率 小于599px */
+    @media screen and (max-width:599px) {
+      .d1 {
+        border: none;
+        background: #ddf;
+        color: #228;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CS3 Media Query</h1>
+  <div class="d1">
+    <!-- 假文:lorem + tab -->
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. A doloremque dolorem enim aspernatur nihil eum voluptatum,
+    in fugiat repudiandae molestiae optio minima modi nostrum itaque ratione amet omnis debitis iste?
+    Aliquam molestias corporis atque, culpa inventore fugit dolorem delectus qui minima esse, similique autem vero
+    ullam quibusdam aliquid eveniet doloribus, ipsam necessitatibus optio beatae recusandae impedit eaque quo natus!
+    Distinctio?
+    Non distinctio maiores facere quam architecto repellat, dolorum consequuntur obcaecati id aperiam cupiditate cum
+    esse deserunt hic praesentium sed ipsa, odio dolor numquam accusamus adipisci. Tempora eaque quam repudiandae
+    repellat?
+  </div>
+</body>
+
+</html>
